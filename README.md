@@ -23,10 +23,10 @@
 
 ### The scenario is similar for wrong answers and time-outs.
 
-### * If the player runs out of time:
-   #### * Tell the player that time's up.
-   #### * Display the correct answer. 
-   #### * Wait a few seconds, then show the next question.
+### If the player runs out of time:
+  - Tell the player that time's up.
+  - Display the correct answer
+  - Wait a few seconds, then show the next question.
 
 ### * If the player chooses the wrong answer:
   #### * Tell the player they selected the wrong option.
