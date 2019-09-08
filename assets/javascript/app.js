@@ -11,6 +11,21 @@ window.onload = function () {
     $("#start").on("click", start);
 };
 
+var questions =[
+    "AJAX is an acronym for Asynchronous JavaScript + XML",
+    "Asynchronous means data can be exchanged with the server and the page can be updated without having to refresh the page",
+    "API stands for Asynchronous Programming Interface",
+    "JSON stands for Javascript Send Objects on Nodes",
+    "The 2 parameters passed in order to retrieve data using AJAX is the 'url' and 'GET method'"
+];
+
+var answers = [ "true", "true", "false","false","true"];
+
+
+
+
+
+
 //  Variable that will hold our setInterval that runs the stopwatch
 var intervalId;
 var clockRunning = false;
@@ -20,6 +35,7 @@ function reset() {
 
     time = 30;
     $("#display").text(':30');
+    $("#questions").empty(); 
 }
 
 function start() {
@@ -27,6 +43,9 @@ function start() {
     if (clockRunning == false) {
         intervalID = setInterval(count, 1000);
         clockRunning = true;
+    }
+    for (var i = 0; i < questions.length; i++) {
+        $('#questions').append('<div id="question"' + i + '>' + questions[i] + '</div>');
     }
 
 }
@@ -58,4 +77,11 @@ function timeConverter(t) {
     }
     return ":" + seconds;
 }
+
+// Pseudo code for start button
+// Display # of correct, incorrect and unanswered questions
+// Display 5 True of false questions
+
+
+
 
