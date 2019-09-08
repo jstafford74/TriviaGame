@@ -59,6 +59,3 @@ function timeConverter(t) {
     return ":" + seconds;
 }
 
-function timeOut(time) {
-
-}
