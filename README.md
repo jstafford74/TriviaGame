@@ -29,10 +29,10 @@
   - Wait a few seconds, then show the next question.
 
 ### * If the player chooses the wrong answer:
-  #### * Tell the player they selected the wrong option.
-  #### * Display the correct answer.
-  #### * Wait a few seconds, then show the next question.
+  * Tell the player they selected the wrong option.
+  * Display the correct answer.
+  * Wait a few seconds, then show the next question.
 
-### * On the final screen:
-   #### * Show the number of: correct answers, incorrect answers, and an option to restart the game (without reloading the page).
+### On the final screen:
+  * Show the number of: correct answers, incorrect answers, and an option to restart the game (without reloading the page).
 
