@@ -54,11 +54,9 @@ function start() {
 
     }
         
-    for (var j = 1; j <= questions.length; j++) {
-        $('#question' + j).append('<td id="answer' + j +'"><input type="radio" id="true" name="Q' + j + '" value=1>');
-        $('#question' + j).append('<label for="true">True</label>');
-        $('#question' + j).append('<input type="radio" id="false" name="Q' + j + '" value=0>');
-        $('#question' + j).append('<label for="false">False</label></td></tr>');
+    for (var j = 0; j < questions.length; j++) {
+        $('#question' + parseInt(j + 1)).append('<td id="answer' + parseInt(j + 1) +'"><input type="radio" id="true" name="Q' + parseInt(j + 1) + '" value=1><label for="true">True</label><input type="radio" id="false" name="Q' + parseInt(j + 1) + '" value=0><label for="false">False</label></td></tr>');
+      
 
     }
     $('#questions').append('<button type="submit">Submit</button>');
@@ -76,7 +74,7 @@ function count() {
     else {
         clearInterval(intervalID);
         clockRunning = false;
-        countScore()
+        countScore();
         console.log("time's up");
     }
 }
@@ -125,9 +123,9 @@ function countScore() {
             wrongCount++;
         }
     }
-    console.log(rightCount);
-    console.log(wrongCount);
-    console.log(unAns);
+    $("#scoreboard").append('<div id="right"> Right: ' + rightCount + '</div>');
+    $("#scoreboard").append('<div id="wrong"> Wrong: ' + wrongCount + '</div>');
+    $("#scoreboard").append('<div id="noAns"> No Ans: ' + unAns + '</div>');
     
 
 }

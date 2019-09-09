@@ -5,44 +5,48 @@
     <meta charset="UTF-8">
     <title>TriviaGame</title>
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-   
-        <div id="display">:30</div>
-       
-        <!-- Div containing our stopwatch controls -->
-        <div id="buttons">
-            <button id="start">Start</button>
-            <button id="reset">Reset</button>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="display">:30</div>
+            <div id="buttons">
+                <button id="start">Start</button>
+                <button id="reset">Reset</button>
+            </div>
+            <div id="scoreboard">
+                
+            </div>
         </div>
-</div>
-<form>
-<div class="jumbotron">
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Question</th>
-            <th scope="col">Answer</th>
-        </tr>
-        </thead>
-        <tbody id="questions">
+    </div>
 
-        </tbody>
-</div>
+    <form>
+        <div class="jumbotron">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Question</th>
+                        <th scope="col">Answer</th>
+                    </tr>
+                </thead>
+                <tbody id="questions">
 
-</form>
-<pre id="log">
-</pre>
-        <!-- jQuery -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                </tbody>
+        </div>
 
-        <!-- Script -->
-        <script type="text/javascript" src="assets/javascript/app.js"></script>
+    </form>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </body>
 
