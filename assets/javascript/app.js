@@ -62,7 +62,7 @@ function start() {
       
 
     }
-    $('#questions').append('<button type="submit">Submit</button>');
+   
 
 
 

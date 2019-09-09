@@ -9,10 +9,34 @@
   border: 3px solid #fff;
   color: #fff;
   position:fixed;
-  margin-left:45px;
-  margin-top:25px;
+  margin-left:0px;
+  margin-top:10px;
+}
+#scoreboard{
+  background-color: #0e83cd;
+  padding: 25px 80px;
+  display: inline-block;
+  /* margin: 10px; */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border: 3px solid #fff;
+  color: #fff;
+  /* position:fixed; */
+  /* margin-left:45px; */
+  /* margin-top:25px; */
 }
 
+.display-3{
+  text-align: center;
+  color:rgb(73, 0, 73);
+  font-weight:700;
+}
+.display-4{
+  text-align: center;
+  color:purple;
+
+}
 label {
     margin-right: 15px;
     line-height: 32px;
