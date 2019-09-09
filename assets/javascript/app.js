@@ -19,7 +19,7 @@ var questions =[
     "The 2 parameters passed in order to retrieve data using AJAX is the 'url' and 'GET method'"
 ];
 
-var answers = [ "true", "true", "false","false","true"];
+var answers = [ 1, 1, 0,0,1];
 
 
 
@@ -45,8 +45,20 @@ function start() {
         clockRunning = true;
     }
     for (var i = 0; i < questions.length; i++) {
-        $('#questions').append('<div id="question"' + i + '>' + questions[i] + '</div>');
+        $('#questions').append('<div id="question' + parseInt(i + 1)  + '">' + questions[i] + '</div>');
+       
+
+        
     }
+for (var j = 1 ; j <= questions.length ; j++){
+    $('#question' + j).append('<input type="radio" id="true" name="Q' + j + '" value=1>');
+    $('#question' + j).append('<label for="true">True</label>');
+    $('#question' + j).append('<input type="radio" id="false" name="Q' + j + '" value=0>');
+    $('#question' + j).append('<label for="false">False</label>');
+    
+}
+
+
 
 }
 
@@ -85,3 +97,19 @@ function timeConverter(t) {
 
 
 
+$("input[type='radio']:checked").each(function() {
+
+    //if (parseInt($("input[type='radio']:checked").val()) === 1) { //NO
+    if (parseInt($(this).val()) === 1) { //Check the .val() of the current radio button
+        console.log("correct");
+        correctCount++;
+        $("#correctCountDiv").text("Correct Answers: " + correctCount);
+    }
+
+    else {
+        console.log("incorrect");
+        wrongCount++;
+        $("#wrongCountDiv").text("wrong Answers: " + wrongCount);
+    }
+
+});
