@@ -11,7 +11,7 @@ window.onload = function () {
     $("#start").on("click", start);
 };
 
-var questions =[
+var questions = [
     "AJAX is an acronym for Asynchronous JavaScript + XML",
     "Asynchronous means data can be exchanged with the server and the page can be updated without having to refresh the page",
     "API stands for Asynchronous Programming Interface",
@@ -19,11 +19,16 @@ var questions =[
     "The 2 parameters passed in order to retrieve data using AJAX is the 'url' and 'GET method'"
 ];
 
-var answers = [ 1, 1, 0,0,1];
+var answers = [1, 1, 0, 0, 1];
+var results = [];
+var rightCount = 0;
+var wrongCount = 0;
+var unAns = 0;
 
 
-
-
+$(":radio").click(function () {
+    console.log("click");
+});
 
 
 //  Variable that will hold our setInterval that runs the stopwatch
@@ -35,7 +40,7 @@ function reset() {
 
     time = 30;
     $("#display").text(':30');
-    $("#questions").empty(); 
+    $("#questions").empty();
 }
 
 function start() {
@@ -45,36 +50,37 @@ function start() {
         clockRunning = true;
     }
     for (var i = 0; i < questions.length; i++) {
-        $('#questions').append('<div id="question' + parseInt(i + 1)  + '">' + questions[i] + '</div>');
-       
+        $('#questions').append('<div id="question' + parseInt(i + 1) + '">' + questions[i] + '</div>');
 
-        
+
+
     }
-for (var j = 1 ; j <= questions.length ; j++){
-    $('#question' + j).append('<input type="radio" id="true" name="Q' + j + '" value=1>');
-    $('#question' + j).append('<label for="true">True</label>');
-    $('#question' + j).append('<input type="radio" id="false" name="Q' + j + '" value=0>');
-    $('#question' + j).append('<label for="false">False</label>');
-    
-}
+    for (var j = 1; j <= questions.length; j++) {
+        $('#question' + j).append('<input type="radio" id="true" name="Q' + j + '" value=1>');
+        $('#question' + j).append('<label for="true">True</label>');
+        $('#question' + j).append('<input type="radio" id="false" name="Q' + j + '" value=0>');
+        $('#question' + j).append('<label for="false">False</label>');
+
+    }
+    $('#questions').append('<button type="submit">Submit</button>');
 
 
 
 }
-
 
 function count() {
-    if (time !== 0){
-    time--;
-    var timeStr = timeConverter(time);
-    $("#display").text(timeStr);
+    if (time !== 0) {
+        time--;
+        var timeStr = timeConverter(time);
+        $("#display").text(timeStr);
     }
     else {
         clearInterval(intervalID);
         clockRunning = false;
-        console.log("time's up");   
-       }
+        countScore()
+        console.log("time's up");
     }
+}
 
 
 
@@ -95,21 +101,34 @@ function timeConverter(t) {
 // Display 5 True of false questions
 
 
+// $(document).on("click", ":radio", countScore);
 
+function countScore() {
+    q1r = $("input[name='Q1']:checked").val();
+    q2r = $("input[name='Q2']:checked").val();
+    q3r = $("input[name='Q3']:checked").val();
+    q4r = $("input[name='Q4']:checked").val();
+    q5r = $("input[name='Q5']:checked").val();
 
-$("input[type='radio']:checked").each(function() {
+    results = [q1r, q2r, q3r, q4r, q5r];
 
-    //if (parseInt($("input[type='radio']:checked").val()) === 1) { //NO
-    if (parseInt($(this).val()) === 1) { //Check the .val() of the current radio button
-        console.log("correct");
-        correctCount++;
-        $("#correctCountDiv").text("Correct Answers: " + correctCount);
+    for (i = 0; i < results.length; i++) {
+        if (results[i] == 1 && answers[i] == 1) {
+            rightCount++;
+        }
+        else if (results[i] == 0 && answers[i] == 0) {
+            rightCount++;
+        }
+        else if (results[i] == "undefined") {
+            unAns++;
+        }
+        else {
+            wrongCount++;
+        }
     }
+    console.log(rightCount);
+    console.log(wrongCount);
+    console.log(unAns);
+    
 
-    else {
-        console.log("incorrect");
-        wrongCount++;
-        $("#wrongCountDiv").text("wrong Answers: " + wrongCount);
-    }
-
-});
+}
