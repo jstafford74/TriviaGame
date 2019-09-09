@@ -9,6 +9,7 @@
 window.onload = function () {
     $("#reset").on("click", reset);
     $("#start").on("click", start);
+    $("#submit").on("click",countScore);
 };
 
 var questions = [
@@ -37,9 +38,11 @@ var time = 30;
 function reset() {
 
     time = 30;
-    $("#display").text(':30');
+    $("#timer").text(':30');
     $("#questions").empty();
+    clearInterval(intervalID);
 }
+
 
 function start() {
     //  Use setInterval to start the count here and set the clock to running.
@@ -69,7 +72,7 @@ function count() {
     if (time !== 0) {
         time--;
         var timeStr = timeConverter(time);
-        $("#display").text(timeStr);
+        $("#timer").text(timeStr);
     }
     else {
         clearInterval(intervalID);
@@ -127,5 +130,8 @@ function countScore() {
     $("#scoreboard").append('<div id="wrong"> Wrong: ' + wrongCount + '</div>');
     $("#scoreboard").append('<div id="noAns"> No Ans: ' + unAns + '</div>');
     
-
+    time = 30;
+    $("#timer").text(':30');
+    
+    clearInterval(intervalID);
 }
