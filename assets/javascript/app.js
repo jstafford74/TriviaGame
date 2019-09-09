@@ -24,11 +24,9 @@ var results = [];
 var rightCount = 0;
 var wrongCount = 0;
 var unAns = 0;
+var tbod = $('tbody');
 
 
-$(":radio").click(function () {
-    console.log("click");
-});
 
 
 //  Variable that will hold our setInterval that runs the stopwatch
@@ -50,16 +48,17 @@ function start() {
         clockRunning = true;
     }
     for (var i = 0; i < questions.length; i++) {
-        $('#questions').append('<div id="question' + parseInt(i + 1) + '">' + questions[i] + '</div>');
+       
 
-
+        $('#questions').append('<tr><td id="question' + parseInt(i + 1) + '">' + questions[i] + '</td>');
 
     }
+        
     for (var j = 1; j <= questions.length; j++) {
-        $('#question' + j).append('<input type="radio" id="true" name="Q' + j + '" value=1>');
+        $('#question' + j).append('<td id="answer' + j +'"><input type="radio" id="true" name="Q' + j + '" value=1>');
         $('#question' + j).append('<label for="true">True</label>');
         $('#question' + j).append('<input type="radio" id="false" name="Q' + j + '" value=0>');
-        $('#question' + j).append('<label for="false">False</label>');
+        $('#question' + j).append('<label for="false">False</label></td></tr>');
 
     }
     $('#questions').append('<button type="submit">Submit</button>');

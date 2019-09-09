@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <title>TriviaGame</title>
 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 
 <body>
 
-    <div id="wrapper">
-
+   
         <div id="display">:30</div>
-
+       
         <!-- Div containing our stopwatch controls -->
         <div id="buttons">
             <button id="start">Start</button>
@@ -22,8 +22,17 @@
         </div>
 </div>
 <form>
-<div class="jumbotron" id="questions">
-    
+<div class="jumbotron">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Question</th>
+            <th scope="col">Answer</th>
+        </tr>
+        </thead>
+        <tbody id="questions">
+
+        </tbody>
 </div>
 
 </form>
